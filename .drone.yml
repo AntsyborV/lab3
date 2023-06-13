@@ -19,6 +19,8 @@ steps:
     image: alpine
     pull: never
     commands:
+      - apk add -U --no-cache perl
+      - COPY --from=build /usr/local/bin/cowsay /usr/local/bin/
       - /usr/local/bin/cowsay "Lab 3 Antsybor"
     depends_on:
       - cowsay_install
