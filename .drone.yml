@@ -18,7 +18,7 @@ steps:
     image: alpine
     commands:
       - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
-      - apk del git
+      - rm -rf cowsay_greetings/
       - echo "Cleanup completed"
 
         #
