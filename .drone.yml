@@ -14,7 +14,7 @@ steps:
       - cd cowsay ; ./install.sh /usr/local
       - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
       - apk del git
-      - sh /usr/local/bin/cowsay "Lab 3 Antsybor"
+      - /usr/local/bin/cowsay "Lab 3 Antsybor"
 #     
 
 
