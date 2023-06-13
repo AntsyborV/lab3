@@ -19,6 +19,7 @@ steps:
     image: gcc:latest 
     commands:
       - g++ -o program program.cpp
+      - echo "Done"
 
   - name: app_test
     image: python:3.10
