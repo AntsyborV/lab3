@@ -11,14 +11,16 @@ steps:
       - apk add --no-cache git perl
       - cd /tmp 
       - git clone https://github.com/jasonm23/cowsay.git 
+      - cd cowsay ; ./install.sh /usr/local
       - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
       - apk del git
 
   - name: cowsay_greetings
     image: alpine
     commands:
-      - cd cowsay ; ./install.sh /usr/local
       - /usr/local/bin/cowsay "Lab 3 Antsybor"
+    depends_on:
+      - cowsay_install
 #     
 
 
