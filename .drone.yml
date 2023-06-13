@@ -4,17 +4,26 @@ type: docker
 name: lab3
 
 steps:
-  - name: pkg install
+  - name: cowsay_install
     image: alpine
     commands:
       - apk update
+<<<<<<< HEAD
       - apk search cowsay
       - apk add cowsay
+=======
+      - apk add --no-cache git perl
+      - cd /tmp 
+      - git clone https://github.com/jasonm23/cowsay.git 
+      - cd cowsay ; ./install.sh /usr/local
+      - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
+      - apk del git
+>>>>>>> 2dbff40 (new update)
 
   - name: greetings 
     image: alpine
     commands:
-      - cowsay "Lab 3 Antsybor"
+      - sh /usr/local/bin/cowsay "Lab 3 Antsybor"
 #     
 
 
