@@ -14,14 +14,25 @@ steps:
       - cd cowsay ; ./install.sh /usr/local
       - /usr/local/bin/cowsay "Lab 3 Antsybor"
 
+
+  - name: build_app 
+    image: gcc:latest 
+    commands:
+      - g++ -o program program.cpp
+
+  - name: app_test
+    image: python:3.10
+    commands:
+      - python test.py
+
   - name: cleanup
     image: alpine
     commands:
       - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
       - rm -rf cowsay_greetings/
       - echo "Cleanup completed"
-
-        #
+      - rm -rf build_app/
+#
 # - name: build
 #   image: gcc:latest
 #   commands:
@@ -33,11 +44,6 @@ steps:
 #   commands:
 #     - python test.py
 
-# - name: lint-python
-#   image: python:3.10
-#   commands:
-#     - pip install pylint
-#     - pylint script.py
 
   
 trigger:
