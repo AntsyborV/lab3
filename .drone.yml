@@ -4,7 +4,7 @@ type: docker
 name: lab3
 
 steps:
-  - name: cowsay_install
+  - name: cowsay_greetings
     image: alpine
     commands:
       - apk update
@@ -12,21 +12,16 @@ steps:
       - cd /tmp 
       - git clone https://github.com/jasonm23/cowsay.git 
       - cd cowsay ; ./install.sh /usr/local
+      - /usr/local/bin/cowsay "Lab 3 Antsybor"
+
+  - name: cleanup
+    image: alpine
+    commands:
       - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
       - apk del git
+      - echo "Cleanup completed"
 
-  - name: cowsay_greetings
-    image: alpine
-    pull: never
-    commands:
-      - apk add -U --no-cache perl
-      - COPY --from=build /usr/local/bin/cowsay /usr/local/bin/
-      - /usr/local/bin/cowsay "Lab 3 Antsybor"
-    depends_on:
-      - cowsay_install
-#     
-
-
+        #
 # - name: build
 #   image: gcc:latest
 #   commands:
@@ -44,12 +39,7 @@ steps:
 #     - pip install pylint
 #     - pylint script.py
 
-# - name: cleanup
-#   image: alpine
-#   commands:
-#     - rm -rf build/
-#     - echo "Cleanup completed"
- 
+  
 trigger:
   branch:
   - main
