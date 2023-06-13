@@ -18,7 +18,7 @@ steps:
   - name: greetings 
     image: alpine
     commands:
-      - sh /usr/local/bin/cowsay "Lab 3 Antsybor"
+      - cowsay "Lab 3 Antsybor"
 #     
 
 
