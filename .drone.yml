@@ -17,6 +17,7 @@ steps:
 
   - name: cowsay_greetings
     image: alpine
+    pull: if-not-exist
     commands:
       - /usr/local/bin/cowsay "Lab 3 Antsybor"
     depends_on:
