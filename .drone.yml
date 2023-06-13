@@ -1,0 +1,39 @@
+---
+kind: pipeline
+type: docker
+name: lab3
+
+steps:
+  - name: greetings 
+    image: alpine
+    commands:
+      - cowsay "Lab 3 Antsybor"
+#     
+
+
+# - name: build
+#   image: gcc:latest
+#   commands:
+#     - g++ -o hello_cpp hello.cpp
+#     - ./hello_cpp
+
+# - name: test-python
+#   image: python:3.10
+#   commands:
+#     - python test.py
+
+# - name: lint-python
+#   image: python:3.10
+#   commands:
+#     - pip install pylint
+#     - pylint script.py
+
+# - name: cleanup
+#   image: alpine
+#   commands:
+#     - rm -rf build/
+#     - echo "Cleanup completed"
+ 
+trigger:
+  branch:
+  - main
