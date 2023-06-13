@@ -13,7 +13,6 @@ steps:
       - git clone https://github.com/jasonm23/cowsay.git 
       - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
       - apk del git
-      - /usr/local/bin/cowsay "Lab 3 Antsybor"
 
   - name: cowsay_greetings
     image: alpine
