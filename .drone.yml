@@ -15,6 +15,11 @@ steps:
       - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
       - apk del git
       - /usr/local/bin/cowsay "Lab 3 Antsybor"
+
+  - name: cowsay_greetings
+    image: alpine
+    commands:
+      - /usr/local/bin/cowsay "Lab 3 Antsybor"
 #     
 
 
