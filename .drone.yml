@@ -14,6 +14,14 @@ steps:
       - cd cowsay ; ./install.sh /usr/local
       - /usr/local/bin/cowsay "Lab 3 Antsybor"
 
+  - name: source_formater
+    image: alpine
+    commands:
+      - apk update
+      - apk add --no-cache clang-format
+      - cat program.cpp
+      - clang-format -i -style=llvm program.cpp
+      - cat program.cpp
 
   - name: build_app 
     image: gcc:latest 
@@ -33,20 +41,3 @@ steps:
       - rm -rf cowsay_greetings/
       - echo "Cleanup completed"
       - rm -rf build_app/
-#
-# - name: build
-#   image: gcc:latest
-#   commands:
-#     - g++ -o hello_cpp hello.cpp
-#     - ./hello_cpp
-
-# - name: test-python
-#   image: python:3.10
-#   commands:
-#     - python test.py
-
-
-  
-trigger:
-  branch:
-  - main
