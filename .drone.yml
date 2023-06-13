@@ -4,6 +4,11 @@ type: docker
 name: lab3
 
 steps:
+  - name: pkg install
+    image: alpine
+    commands:
+      - apk add cowsay
+
   - name: greetings 
     image: alpine
     commands:
