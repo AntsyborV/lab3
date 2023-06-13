@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-string line;
+    string line;
   cin >> line;
 cout << line << endl;
 
