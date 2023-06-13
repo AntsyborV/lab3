@@ -14,11 +14,7 @@ steps:
       - cd cowsay ; ./install.sh /usr/local
       - rm -rf /var/cache/apk/* /var/tmp/* /tmp/* 
       - apk del git
-
-  - name: greetings 
-    image: alpine
-    commands:
-      - cowsay "Lab 3 Antsybor"
+      - sh /usr/local/bin/cowsay "Lab 3 Antsybor"
 #     
 
 
