@@ -18,7 +18,7 @@ steps:
     image: alpine
     commands:
       - apk update
-      - apk add --no-cache clang-format
+      - apk add --no-cache clang-extra-tools
       - cat program.cpp
       - clang-format -i -style=llvm program.cpp
       - cat program.cpp
