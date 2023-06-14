@@ -6,7 +6,7 @@ docker run \
   --env=DRONE_GITHUB_CLIENT_SECRET=c8aa7b02b6df54c8b4a3181bed3f563349ba776d \
   --env=DRONE_RPC_SECRET=6019a80e21066d906446b45a6eac1c2c \
   --env=DRONE_SERVER_HOST="$1" \
-  --env=DRONE_SERVER_PROTO=https \
+  --env=DRONE_SERVER_PROTO=http \
   --publish=80:80 \
   --publish=443:443 \
   --restart=always \
@@ -16,7 +16,7 @@ docker run \
 
 docker run --detach \
   --volume=/var/run/docker.sock:/var/run/docker.sock \
-  --env=DRONE_RPC_PROTO=https \
+  --env=DRONE_RPC_PROTO=http \
   --env=DRONE_RPC_HOST="$1" \
   --env=DRONE_RPC_SECRET=6019a80e21066d906446b45a6eac1c2c \
   --env=DRONE_RUNNER_CAPACITY=2 \
