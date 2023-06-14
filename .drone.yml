@@ -41,3 +41,7 @@ steps:
       - rm -rf cowsay_greetings/
       - echo "Cleanup completed"
       - rm -rf build_app/
+
+trigger:
+  branch:
+  - main
